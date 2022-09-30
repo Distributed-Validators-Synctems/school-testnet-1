@@ -10,16 +10,23 @@
 	# clones gaia repository, checks out correct version, makes, and builds the binary
 	# Configures chain ID and home folder
 	# Initializes node_moniker on testnet chain ID
+	
 
 # The only thing you need to change is your NODE_MONIKER value; unless the branch or chain ID has changed in the meantime.
 
 ##### CONFIGURATION ###
 
-export GAIA_BRANCH=v7.0.2
+# Don't change these
+export GAIA_BRANCH=v7.0.2 # maybe change this if necessary!
 export NODE_HOME=$HOME/.gaia
-export CHAIN_ID=school-testnet-1
-export NODE_MONIKER=my-node # only really need to change this one
 export BINARY=gaiad
+export CHAIN_ID=school-testnet-1 # maybe change this if necessary!
+
+# Change these values below
+export NODE_MONIKER=my-node
+export KEY_NAME=test_key
+export WEBSITE=https://google.com
+export NODE_DETAILS="Details about my node!"
 
 ##### CONFIGURATION ###
 
@@ -61,3 +68,21 @@ echo "***********************"
 echo "configuring chain..."
 $BINARY config chain-id $CHAIN_ID --home $NODE_HOME
 $BINARY init $NODE_MONIKER --home $NODE_HOME --chain-id=$CHAIN_ID
+
+echo "Adding keys..."
+gaiad keys add $KEY_NAME
+
+echo "Adding genesis account..."
+gaiad add-genesis-account $KEY_NAME 1000000000uatom --keyring-backend os
+
+echo "Creating gentx file..."
+gaiad gentx $KEY_NAME 1000000000uatom --output-document=gentx.json \
+  --chain-id=$CHAIN_ID \
+  --moniker=$MONIKER_NAME \
+  --website=$WEBSITE \
+  --details=$NODE_DETAILS \
+  --commission-rate="0.10" \
+  --commission-max-rate="0.20" \
+  --commission-max-change-rate="0.01" \
+  --min-self-delegation="1" \
+  --keyring-backend <os | file>

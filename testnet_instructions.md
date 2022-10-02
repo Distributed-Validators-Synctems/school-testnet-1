@@ -2,11 +2,11 @@
 
 ## **Quick Links**
 
-Genesis: [link](https://github.com/Distributed-Validators-Synctems/school-testnet-1/raw/master/genesis.json)
+Genesis: [link](https://raw.githubusercontent.com/Distributed-Validators-Synctems/school-testnet-1/master/genesis.json)
 
 Block explorer: `TBA`
 
-Persistent peers: [link](https://github.com/Distributed-Validators-Synctems/school-testnet-1/raw/master/peers.txt)
+Persistent peers: [link](https://raw.githubusercontent.com/Distributed-Validators-Synctems/school-testnet-1/master/peers.txt)
 
 Chain Id: school-testnet-1
 
@@ -156,9 +156,11 @@ After directories will be ready please copy `gaiad` binaries created in the “C
 Set up a service to allow cosmovisor to run in the background as well as restart automatically if it runs into any problems:
 
 ```
-echo "[Unit]
+sudo tee /etc/systemd/system/gaiad.service > /dev/null <<EOF
+[Unit]
 Description=Cosmos Hub daemon
 After=network-online.target
+
 [Service]
 Environment="DAEMON_NAME=gaiad"
 Environment="DAEMON_HOME=${HOME}/.gaia"
@@ -172,14 +174,11 @@ Restart=always
 RestartSec=3
 LimitNOFILE=infinity
 LimitNPROC=infinity
+
 [Install]
 WantedBy=multi-user.target
-" >cosmovisor.service
+EOF
 ```
-
-Move this new file to the systemd directory:
-
-`sudo mv cosmovisor.service /etc/systemd/system/gaiad.service`
 
 ## **More about validators**
 

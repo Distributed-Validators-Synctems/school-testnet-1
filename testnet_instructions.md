@@ -4,7 +4,8 @@
 
 Genesis: [link](https://raw.githubusercontent.com/Distributed-Validators-Synctems/school-testnet-1/master/genesis.json)
 
-Block explorer: `TBA`
+Block explorer: [link](https://exp.nodeist.net/T-DVS)
+
 
 Persistent peers: [link](https://raw.githubusercontent.com/Distributed-Validators-Synctems/school-testnet-1/master/peers.txt)
 

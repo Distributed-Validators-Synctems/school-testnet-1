@@ -1,0 +1,6 @@
+// Two send messages were passed in the same transaction, and funds were sent to two different addresses at once. Transaction hash:
+
+DDB9F9CBAECB55D4743B43B121947963BDD9F18932ACCE0A29F7DF3664B7C2CE
+
+// Explorer URL:
+https://testnet.42cabi.net/school-testnet-1/tx/DDB9F9CBAECB55D4743B43B121947963BDD9F18932ACCE0A29F7DF3664B7C2CE

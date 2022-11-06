@@ -1,0 +1,3 @@
+// M1 validator sending 1atom to DVS' validator transaction hash:
+
+31EC711FF09667A464C03BB7F4102E6C3E4106F8A10DC0BEB31393C48AB2FA6B

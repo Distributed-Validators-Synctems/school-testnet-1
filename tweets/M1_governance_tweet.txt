@@ -1,0 +1,5 @@
+https://twitter.com/B_M1Validator/status/1578897719829360640
+
+
+// txhash of tweet url in a tx memo
+E6039BE489ADC968D64AC3DD8FC4A119AF540D35F229575C008D6D164C783BA3
